@@ -1,0 +1,24 @@
+﻿@model  QuizTestingSystem.Models.user
+@using (Html.BeginForm("OutsiderSubs", "Home", FormMethod.Post, new { @class = "mc-trial row" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group col-md-3 col-md-offset-2 col-sm-4">
+        <div class=" controls">
+            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+            @Html.ValidationMessageFor(model => model.username)
+        </div>
+    </div><!-- End email input -->
+    <div class="form-group col-md-3 col-sm-4">
+        <div class=" controls">
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+    </div><!-- End email input -->
+    <div class="col-md-2 col-sm-4">
+        <p>
+            <button name="submit" type="submit" class="btn btn-block btn-submit">
+                Submit <i class="fa fa-arrow-right"></i>
+            </button>
+        </p>
+    </div>
+}<!-- End newsletter-form -->

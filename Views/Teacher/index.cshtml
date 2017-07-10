@@ -1,0 +1,118 @@
+﻿@{
+    Layout = "~/Views/Shared/_teacherLayout.cshtml";
+}
+<div class="modal fade" id="changePassword">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+
+
+                <form role="form" method="post" id="contact-form" class="contact-form" action="/Teacher/ChangePassword">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="oldPass" autocomplete="off" id="oldPassword" placeholder="Old Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="newPass" autocomplete="off" id="newPassword" placeholder="New Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn main-btn pull-right">Change</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="passAlert">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Incorrect Password</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="succAlert">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Password Changed Successfully</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Welcome @ViewBag.name</h1>
+    <div class="container theme-showcase" role="main">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row placeholders">
+        <hr>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="well">
+                            <h4 class="text-danger"><span class="label label-danger pull-right">- 9%</span> New Users </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="well">
+                            <h4 class="text-success"><span class="label label-success pull-right">+ 3%</span> Returning </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="well">
+                            <h4 class="text-primary"><span class="label label-primary pull-right">201</span> Sales </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="well">
+                            <h4 class="text-success"><span class="label label-success pull-right">+ 24%</span> Pageviews </h4>
+                        </div>
+                    </div>
+                </div><!--/row-->
+            </div><!--/col-12-->
+        </div><!--/row-->
+    </div>
+
+</div>

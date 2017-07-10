@@ -1,0 +1,14 @@
+﻿@{
+    if (ViewData["users"] != null)
+    {
+        foreach (var user in (List<QuizTestingSystem.Models.user>)ViewData["users"])
+        {
+            <tr>
+                <td>@user.userId</td>
+                <td>@user.fullname</td>
+                <td>@user.usertype</td>
+                <td>@user.email</td>
+            </tr>
+        }
+    }
+}

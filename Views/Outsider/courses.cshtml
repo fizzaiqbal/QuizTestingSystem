@@ -1,0 +1,45 @@
+﻿@model  QuizTestingSystem.Models.question
+@{
+    Layout = "~/Views/Shared/_outsiderLayout.cshtml";
+}
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="sub-header">All courses</h2>
+    <br>For each quiz you will be given 10 minutes
+    <br><br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Teacher</th>
+                    <th>Course Type</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var cour in (List<QuizTestingSystem.Models.cours>)ViewData["Courses"])
+                    {
+                        <tr>
+                            <td>@cour.courseId</td>
+
+                            <td>@cour.courseName</td>
+                            <td>@cour.teacher</td>
+                            <td>@cour.type</td>
+                            <td>@cour.price PKR</td>
+                            <td>
+                                  @Html.ActionLink("Take Quiz", "takeQuiz", new { id = cour.courseId })
+                            </td>
+                    </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+        <br><br>
+
+    </div>
+</div>

@@ -1,0 +1,94 @@
+﻿@model QuizTestingSystem.Models.feedback
+@{
+    Layout = "~/Views/Shared/adminLayout.cshtml";
+}
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <script type="text/javascript">
+        alert("@ViewBag.Message");
+    </script>
+}
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Reply to Feedback Received</h5>
+                
+            </div>
+            <div class="modal-body">
+                
+                
+                        <form role="form" method="post" id="contact-form" class="contact-form" action="/Admin/SendMail">
+                            <input type="hidden" name="cafeId" id="cafeId" value="" />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="Subject" autocomplete="off" id="Subject" placeholder="Subject" required>
+                                    </div>
+                                </div>
+             
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control textarea" rows="3" name="Message" id="Message" placeholder="Message" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button type="submit" class="btn main-btn pull-right">Send a message</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="sub-header">Feedback</h2>
+    <br><br><br>
+    <h2>@ViewBag.Message</h2>
+    <br><br>
+    <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Panel heading</div>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (var feed in (List<QuizTestingSystem.Models.feedback>)ViewData["Feedback"])
+                        {
+                            <tr>
+                                <td>@feed.name</td>
+                                <td>@feed.email</td>
+                                <td>@feed.subject</td>
+                                <td>@feed.message</td>
+                                <td>
+                                    <a class="btn btn-primary announce" data-toggle="modal" data-id=@feed.Id>Reply</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+            <br><br>
+
+        </div>
+    </div>
+</div>

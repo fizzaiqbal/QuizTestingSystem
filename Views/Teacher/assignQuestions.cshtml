@@ -1,0 +1,137 @@
+﻿@{
+    Layout = "~/Views/Shared/teacher_forms_layout.cshtml";
+}
+@{
+    ViewBag.Title = "AssignQuestions";
+}
+<div class="modal fade" id="myModal4">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Select Type</h5>
+
+            </div>
+            <div class="modal-body">
+                <form id="contact" method="post" class="form" role="form" action="/Teacher/AddOA">
+                    <input type="hidden" name="quesId" id="quesId" value="@ViewBag.QuesId" />
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="text" name="question" placeholder="Question" class="form-control" required/>
+                        </div>
+                    </div>
+                    <br><br/>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="text" name="sidenote" placeholder="Side Note" class="form-control" required/>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="number" name="marks" placeholder="Marks" class="form-control" required />
+                        </div>
+                    </div>
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal5">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Select Type</h5>
+
+            </div>
+            <div class="modal-body">
+                <form id="contact" method="post" class="form" role="form" action="/Teacher/AddTF">
+                    <input type="hidden" name="quesId" id="quesId" value="@ViewBag.QuesId" />
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="text" name="question" placeholder="Question" class="form-control" required />
+                        </div>
+                    </div>
+                    <br><br />
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <select class="form-control" placeholder="Correct Option" id="right2" name="right2" required>
+                                <option>True</option>
+                                <option>False</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <input type="number" name="marks" placeholder="Marks" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="cantdone">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Failed</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Assign all questions</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="sub-header">Unassigned Questions</h2>
+    <br><br>
+
+    <br><br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Quiz Id</th>
+                    <th>Question Id</th>
+                    <th>Question Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var quest in (List<QuizTestingSystem.Models.RegQuestion>)ViewData["Questions"])
+                    {
+                        <tr>
+                            <td>@quest.quizId</td>
+                            <td>@quest.Id</td>
+                            <td>@quest.type</td>
+                            <td>
+                                @Html.ActionLink("Assign", "AssignOnBasisOfType", new { id1 = quest.Id}, new { @class = "btn btn-info btn-sm" })
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+        <br><br>
+
+    </div>
+</div>

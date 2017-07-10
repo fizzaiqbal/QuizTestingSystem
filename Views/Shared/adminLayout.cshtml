@@ -1,0 +1,137 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="images/quizly.ico">
+
+    <title>Admin Panel</title>
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="~/Content/css/dashboard.css" rel="stylesheet">
+
+    <!-- Bootstrap Core CSS -->
+    <!-- Custom CSS -->
+    <link href="~/Content/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/css/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/ie-emulation-modes-warning.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></Script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/holder.min.js"></script>
+    <script src="~/Scripts/ie10-viewport-bug-workaround.js"></script>
+    <script src="~/Scripts/jquery-2.1.3.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/mvc/3.0/jquery.unobtrusive-ajax.min.js"></script>
+  <script type="text/javascript">
+      $(document).ready(function () {
+          $(".announce").click(function () { // Click to only happen on announce links
+              $("#cafeId").val($(this).data('id'));
+              $('#myModal').modal('show');
+          });
+          $('#search959').click(function () {
+              var v = $('#name959').val();
+              $.ajax({
+                  url: "/Admin/SearchUsers",
+                  type: "GET",
+                  data: { name: v },
+                  success: function (resdata) {
+
+                      var res = JSON.stringify(resdata);
+                      var obj = JSON.parse(res);
+                      document.getElementById("id11").innerHTML = obj.userId;
+                      document.getElementById("name11").innerHTML = obj.fullname;
+                      document.getElementById("email11").innerHTML = obj.email;
+                      document.getElementById("utype11").innerHTML = obj.usertype;
+                  }
+              });
+          });
+      });
+      </script>
+    @Html.Raw(TempData["changePass"])
+    @Html.Raw(TempData["passAlert"])
+    @Html.Raw(TempData["succAlert"])
+    <style type="text/css">
+        .contact-form{ margin-top:15px;}
+        .contact-form .textarea{ min-height:220px; resize:none;}
+        .form-control{ box-shadow:none; border-color:#eee; height:49px;}
+        .form-control:focus{ box-shadow:none; border-color:#00b09c;}
+        .form-control-feedback{ line-height:50px;}
+        .main-btn{ background:#00b09c; border-color:#00b09c; color:#fff;}
+        .main-btn:hover{ background:#00a491;color:#fff;}
+        .form-control-feedback {
+            line-height: 50px;
+            top: 0px;
+        }
+        </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Admin/Index">ADMIN PANEL</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> @ViewBag.name <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/Admin/Index"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            </li>
+                            <li>
+                                <a href="/Admin/HandleQueries"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
+                            </li>
+                            <li>
+                                <a href="/Admin/ChangePassword"><i class="fa fa-fw fa-gear"></i> Change Password</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/Admin/Logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li><a href="/Admin/Index"><i class="fa fa-hand-o-right"></i> Account <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/Admin/Users"><i class="fa fa-hand-o-right"></i> Manage Users</a></li>
+                    <li><a href="/Admin/Courses"><i class="fa fa-hand-o-right"></i> Manage Short Courses</a></li>
+                    <li><a href="/Admin/HandleQueries"><i class="fa fa-hand-o-right"></i> Handle Queries</a></li>
+                </ul>
+
+            </div>
+            @RenderBody();
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿@{
+    Layout = "~/Views/Shared/quiz.cshtml";
+}
+@{
+    var cor = (QuizTestingSystem.Models.cours)ViewData["Course"];
+}
+<title>@ViewBag.CourseName.name</title>
+    <div id="blackbar">
+        <h1>@ViewBag.QuizTitle.title</h1>
+        <div class="float-left">
+            <h2 id="timecountdown"></h2>
+        </div>
+    </div>
+    <div id="page-wrap">
+        <form action="/Students/QuizSubmit" method="post" id="myForm">
+            <input type="hidden" name="quizId" id="quizId" value="@ViewBag.QuizTitle.Id" />
+            <ol>
+                @foreach (var item in (List<QuizTestingSystem.Models.MC>)ViewData["mcqs"])
+                {
+                    <li>
+                        <h3>@item.question</h3>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Alpha" />
+                            <label for="question-1-answers-A">@item.alpha </label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Beta" />
+                            <label for="question-1-answers-B">@item.bravo</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Charlie" />
+                            <label for="question-1-answers-C">@item.charlie</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Delta" />
+                            <label for="question-1-answers-D">@item.delta</label>
+                        </div>
+
+                    </li>
+                }
+            </ol>
+            <ol>
+                @foreach (var item1 in (List<QuizTestingSystem.Models.MC>)ViewData["mas"])
+                {
+                    <li>
+                        <h3>@item1.question</h3>
+                            <div>
+                                <input type="checkbox" name=@item1.questionId id=@item1.questionId value="Alpha" />
+                                <label for="question-1-answers-A">@item1.alpha</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name=@item1.questionId id=@item1.questionId value="Bravo" />
+                                <label for="question-1-answers-B">@item1.bravo</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name=@item1.questionId id=@item1.questionId value="Charlie" />
+                                <label for="question-1-answers-C">@item1.charlie</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name=@item1.questionId id=@item1.questionId value="Delta" />
+                                <label for="question-1-answers-D">@item1.delta</label>
+                            </div>
+                    </li>
+                }
+            </ol>
+            <ol>
+                @foreach (var item in (List<QuizTestingSystem.Models.TrueFalse>)ViewData["tf"])
+                {
+                    <li>
+
+                        <h3>@item.question</h3>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="True" />
+                            <label for="question-1-answers-A">True</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="False" />
+                            <label for="question-1-answers-B">False</label>
+                        </div>
+                    </li>
+                }
+            </ol>
+            <ol>
+                @foreach (var item in (List<QuizTestingSystem.Models.OA>)ViewData["oa"])
+                {
+                    <li>
+
+                        <h3>@item.question</h3>
+                        <textarea name="@item.Id" id="@item.Id" class="field-long field-textarea resizable"></textarea>
+                    </li>
+                }
+            </ol>
+            <button class="w3-button w3-teal" input type="submit" value="Submit Quiz">Submit</button>
+        </form>
+    </div>

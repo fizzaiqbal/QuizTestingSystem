@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_outsiderLayout.cshtml";
+}
+<div class="modal fade" id="changePassword">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+
+
+                <form role="form" method="post" id="contact-form" class="contact-form" action="/Outsider/ChangePassword">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="oldPass" autocomplete="off" id="oldPassword" placeholder="Old Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="newPass" autocomplete="off" id="newPassword" placeholder="New Password" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn main-btn pull-right">Change</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="passAlert">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Incorrect Password</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="succAlert">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">Change Password</h5>
+
+            </div>
+            <div class="modal-body">
+                <p>Password Changed Successfully</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Welcome @ViewBag.name</h1>
+    <div class="container theme-showcase" role="main">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+
+            </div>
+
+        </div>
+    </div>
+    <div class="row placeholders">
+        <hr>
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@ViewBag.courseCount</div>
+                                <div>New Courses!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/Outsider/Courses">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</div>

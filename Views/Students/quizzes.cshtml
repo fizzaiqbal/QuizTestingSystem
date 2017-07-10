@@ -1,0 +1,103 @@
+﻿@model  QuizTestingSystem.Models.RegCourse
+@{
+    Layout = "~/Views/Shared/_studentLayout.cshtml";
+}
+<div class="modal fade" id="myModal6">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">New Questions</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Quiz Id</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var quiz in (List<QuizTestingSystem.Models.Quiz>)ViewData["quiz345"])
+                                {
+                                    <tr>
+                                        <td>@quiz.Id</td>
+                                        <td>@quiz.title</td>
+                                        <td>@quiz.date</td>
+                                        <td>@quiz.time1 minutes</td>
+                                        <td>
+                                            @Html.ActionLink("Take Quiz", "TakeQuiz", new { id = quiz.Id }, new { @class = "btn btn-info btn-sm" })
+                                        </td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal7">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h5 class="modal-title">New Questions</h5>
+
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                   <h1>Quiz Submitted Successfully</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h2 class="sub-header">All courses</h2>
+    <br><br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Instructor</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (var cour in (List<QuizTestingSystem.Models.course_quiz>)ViewData["Courses2"])
+                    {
+                        <tr>
+                            <td>@cour.courseId</td>
+                            <td>@cour.courseName</td>
+                            <td>@cour.instructorName</td>
+                            <td>
+                                @Html.ActionLink("View Unattended Quizzes", "ShowQuizzes", new { id = cour.courseId }, new { @class = "glyphicon glyphicon-option-horizontal" })
+                        </td>
+                    </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <br><br>
+    </div>
+</div>

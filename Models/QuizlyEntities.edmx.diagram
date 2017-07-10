@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39c93aa409384de0a46cb93e1d4384ee" Name="Diagram1">
+        <EntityTypeShape EntityType="QuizlyModel.cours" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.feedback" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.FGE" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.MC" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.OA" Width="1.5" PointX="9.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.question" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.Quiz" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.RegCourse" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.RegQuestion" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.Result" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.TrueFalse" Width="1.5" PointX="9.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.UserAnswer" Width="1.5" PointX="12.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuizlyModel.user" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="QuizlyModel.FK_questions_courses" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_FGE_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_MC_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_OA_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_Quiz_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_RegQuestion_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_Result_ToTable_1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_RegCourse_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_TrueFalse_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_UserAnswer_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_Result_ToTable" ManuallyRouted="false" />
+        <AssociationConnector Association="QuizlyModel.FK_UserAnswer_ToTable_1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

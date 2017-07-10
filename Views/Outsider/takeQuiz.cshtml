@@ -1,0 +1,66 @@
+﻿@{
+    Layout = "~/Views/Shared/_shortQuiz.cshtml";
+}
+@{
+    var cor = (QuizTestingSystem.Models.cours)ViewData["Course"];
+}
+<title>@cor.courseName</title>
+<body>
+    <div id="blackbar">
+        <h1>@cor.courseName</h1>
+    </div>
+    <div class="float-left">
+        <h2 id="timecountdown"></h2>
+    </div>
+    <div id="page-wrap">
+
+        <form action="/Outsider/SampleQuizResult" method="post" id="quiz">
+
+            <ol>
+                @foreach (var item in (List<QuizTestingSystem.Models.question>) ViewData["ques"])
+                {
+                    <li>
+
+                        <h3>@item.question1</h3>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Alpha" />
+                            <label for="question-1-answers-A">@item.alpha </label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Beta" />
+                            <label for="question-1-answers-B">@item.beta</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Charlie" />
+                            <label for="question-1-answers-C">@item.charlie</label>
+                        </div>
+
+                        <div>
+                            <input type="radio" name=@item.questionId id=@item.questionId value="Delta" />
+                            <label for="question-1-answers-D">@item.delta</label>
+                        </div>
+
+                    </li>
+                }
+            </ol>
+
+            <button class="w3-button w3-teal" input type="submit" value="Submit Quiz">Submit</button>
+
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        var pageTracker = _gat._getTracker("UA-68528-29");
+        pageTracker._initData();
+        pageTracker._trackPageview();
+    </script>
+
+</body>
